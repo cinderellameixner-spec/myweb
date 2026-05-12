@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沈璞 · 字节TikTok Shop面试答题指南</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f4f0; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+  
+  header { background: #fff; border-bottom: 1px solid #e8e6e0; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .logo { font-size: 14px; font-weight: 600; color: #333; }
+  .logo span { color: #6b5fe0; }
+  .meta { font-size: 12px; color: #999; }
+
+  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; min-height: 100vh; }
+
+  nav { background: #fff; border-right: 1px solid #e8e6e0; padding: 1.5rem 0; position: sticky; top: 57px; height: calc(100vh - 57px); overflow-y: auto; }
+  .nav-section { padding: 0.5rem 1.25rem; font-size: 11px; font-weight: 600; color: #bbb; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1rem; }
+  .nav-item { display: block; padding: 0.5rem 1.25rem; font-size: 13px; color: #555; cursor: pointer; border-left: 2px solid transparent; transition: all 0.15s; text-decoration: none; }
+  .nav-item:hover { background: #f5f4f0; color: #1a1a1a; }
+  .nav-item.active { border-left-color: #6b5fe0; color: #6b5fe0; background: #f0eeff; font-weight: 500; }
+
+  main { padding: 2rem; max-width: 820px; }
+
+  .page-title { font-size: 22px; font-weight: 600; margin-bottom: 0.5rem; }
+  .page-sub { font-size: 14px; color: #888; margin-bottom: 2rem; }
+
+  .section { margin-bottom: 3rem; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid #e8e6e0; }
+  .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .section-title-text { font-size: 17px; font-weight: 600; }
+  .section-badge { font-size: 11px; padding: 2px 8px; border-radius: 99px; font-weight: 500; margin-left: auto; }
+
+  .qa-card { background: #fff; border: 1px solid #e8e6e0; border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+  .qa-q { padding: 1rem 1.25rem; font-size: 14px; font-weight: 500; color: #444; background: #fafaf8; border-bottom: 1px solid #f0eeea; display: flex; align-items: flex-start; gap: 10px; }
+  .q-tag { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; white-space: nowrap; margin-top: 1px; }
+  .qa-a { padding: 1rem 1.25rem; font-size: 14px; line-height: 1.8; color: #333; }
+  .qa-a p { margin-bottom: 0.6rem; }
+  .qa-a p:last-child { margin-bottom: 0; }
+  .highlight { background: #f0eeff; color: #4a35c0; padding: 1px 5px; border-radius: 3px; font-weight: 500; font-size: 13px; }
+  .data-point { color: #0d7a4c; font-weight: 500; }
+  .tip { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 13px; color: #78500a; margin-top: 0.75rem; line-height: 1.6; }
+  .tip strong { font-weight: 600; }
+
+  .purple { background: #6b5fe0; }
+  .teal { background: #0d7a4c; }
+  .amber { background: #d97706; }
+  .coral { background: #dc4a25; }
+  .blue { background: #1a6fc4; }
+  .gray { background: #6b7280; }
+
+  .badge-purple { background: #f0eeff; color: #4a35c0; }
+  .badge-teal { background: #e6f7f0; color: #0d5c3a; }
+  .badge-amber { background: #fffbeb; color: #78500a; }
+  .badge-coral { background: #fff0ed; color: #a83518; }
+  .badge-blue { background: #e8f0fb; color: #1a4f8f; }
+  .badge-gray { background: #f3f4f6; color: #374151; }
+
+  .english-tag { display: inline-block; background: #e8f0fb; color: #1a4f8f; font-size: 11px; padding: 1px 7px; border-radius: 4px; font-weight: 500; margin-left: 6px; vertical-align: middle; }
+
+  .intro-box { background: linear-gradient(135deg, #6b5fe0 0%, #4a35c0 100%); border-radius: 12px; padding: 1.5rem; color: #fff; margin-bottom: 2rem; }
+  .intro-box h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; opacity: 0.9; }
+  .intro-box p { font-size: 13px; opacity: 0.8; line-height: 1.7; }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+  .intro-tag { background: rgba(255,255,255,0.2); color: #fff; font-size: 12px; padding: 3px 10px; border-radius: 99px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">沈璞 · <span>字节TikTok Shop</span> 面试答题指南</div>
+  <div class="meta">平台治理运营（AI方向）实习生</div>
+</header>
+
+<div class="layout">
+  <nav>
+    <div class="nav-section">面试模块</div>
+    <a class="nav-item active" href="#intro">自我介绍</a>
+    <a class="nav-item" href="#resume">简历深挖</a>
+    <a class="nav-item" href="#ai-agent">AI Agent认知</a>
+    <a class="nav-item" href="#governance">平台治理</a>
+    <a class="nav-item" href="#data">数据分析</a>
+    <a class="nav-item" href="#tiktok">TikTok认知</a>
+    <a class="nav-item" href="#hr">HR面</a>
+  </nav>
+
+  <main>
+    <div class="page-title">面试答题参考手册</div>
+    <div class="page-sub">基于简历内容定制 · 建议理解后用自己的语言表达，不要背诵</div>
+
+    <div class="intro-box">
+      <h3>你的核心优势标签</h3>
+      <p>在备考中，始终围绕这几个差异化亮点来组织回答，让面试官形成清晰印象。</p>
+      <div class="tags-row">
+        <span class="intro-tag">AI Agent产品落地经验</span>
+        <span class="intro-tag">Prompt迭代优化实践</span>
+        <span class="intro-tag">Python数据处理能力</span>
+        <span class="intro-tag">LLM评测量化思维</span>
+        <span class="intro-tag">数字经济学术背景</span>
+        <span class="intro-tag">多模型实战使用经验</span>
+      </div>
+    </div>
+
+    <!-- 自我介绍 -->
+    <div class="section" id="intro">
+      <div class="section-header">
+        <div class="section-icon purple" style="color:#fff; font-size:14px; font-weight:600;">01</div>
+        <div class="section-title-text">自我介绍</div>
+        <span class="section-badge badge-purple">开场必备</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-purple">中文版</span>
+          标准自我介绍（约90秒）
+        </div>
+        <div class="qa-a">
+          <p>您好，我叫沈璞，本科毕业于<span class="highlight">中央财经大学物流管理专业</span>，今年九月将入读<span class="highlight">浙江大学数字经济方向硕士</span>。</p>
+          <p>在AI与运营的交叉领域，我有比较扎实的实践经验。今年三到五月，我在<span class="highlight">浙江省北大信息技术高等研究院</span>担任AI产品实习生，核心工作是主导"大V智能投资助手"AI Agent产品的从0到1规划——包括用户痛点挖掘、信息架构设计、PRD撰写，以及使用Claude等大模型工具完成产品原型的全链路落地。</p>
+          <p>在AI工具的实际使用上，我日常深度使用ChatGPT、Claude、Gemini，有过<span class="highlight">Prompt多轮迭代优化</span>的实操经验——我在一个会议纪要提取项目中，经过3轮提示词调优，将待办事项召回率从初版的约60%提升到了<span class="data-point">85%</span>。</p>
+          <p>此外，我有Python数据处理和SQL分析的基础，曾独立开发自动对账工具，在500+笔真实数据上实现<span class="data-point">90%以上匹配率</span>。</p>
+          <p>我对AI在内容治理场景的应用非常感兴趣，希望能在TikTok Shop的平台治理运营岗位上，把对大模型运作机制的理解和数据分析能力真正用到实际业务中，期待和团队一起探索！</p>
+          <div class="tip"><strong>提示：</strong>结尾可根据面试官反应灵活延伸，约1分30秒讲完，留出被追问的空间。如果要求全英文，参考下方英文版。</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-blue">英文版</span>
+          Self-introduction（部分岗位全英文）<span class="english-tag">EN</span>
+        </div>
+        <div class="qa-a">
+          <p>Hi, I'm Shen Pu. I completed my undergraduate degree in Logistics Management at the <span class="highlight">Central University of Finance and Economics</span>, and I'll be starting my master's program in Digital Economy at <span class="highlight">Zhejiang University</span> this September.</p>
+          <p>My most relevant experience is a recent AI product internship at the <span class="highlight">Peking University Information Technology Institute</span> in Hangzhou, where I led the end-to-end planning of an AI Agent product for investment information aggregation. My work covered user research, information architecture design, PRD documentation, and building product prototypes using tools like Claude.</p>
+          <p>On the practical AI side, I've worked extensively with prompt engineering — in one project involving meeting transcript summarization, I went through three rounds of prompt iteration and improved the task recall rate to <span class="data-point">85%</span>. I also have hands-on experience calling LLM APIs and building lightweight automation tools with Python.</p>
+          <p>I'm genuinely excited about AI-driven platform governance — the intersection of large model quality assurance and real business compliance challenges is exactly where I want to contribute. I'd love to bring my product thinking and data skills to the TikTok Shop team.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 简历深挖 -->
+    <div class="section" id="resume">
+      <div class="section-header">
+        <div class="section-icon teal" style="color:#fff; font-size:14px; font-weight:600;">02</div>
+        <div class="section-title-text">简历深挖题</div>
+        <span class="section-badge badge-teal">必考</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-teal">Q1</span>
+          你在过去实习中主要对哪些业务数据负责？用了哪些工具？
+        </div>
+        <div class="qa-a">
+          <p>在北大高研院的AI产品实习中，我主要负责两类数据工作：</p>
+          <p>第一，<span class="highlight">竞品数据调研</span>。我系统调研了雪球、东方财富、同花顺三大平台的数据源可用性与合规边界，整理了数据接入路径的对比分析报告，作为产品数据管道选型的决策依据。</p>
+          <p>第二，<span class="highlight">模型效果评估数据</span>。在文本摘要工具项目中，我设计了评估框架，选取20条真实会议记录做人工标注测试，输出了摘要质量（<span class="data-point">4.2/5</span>分）和待办召回率（<span class="data-point">85%</span>）两项量化指标，并基于低分样本分析了Prompt的失效模式，推动了后续迭代。工具上主要用Python做数据处理、Excel做汇总分析。</p>
+          <div class="tip"><strong>追问预案：</strong>如果被问"为什么召回率是85%不是100%"——可以回答：遗漏的15%主要是隐性待办（如"下次会议时带上资料"这种语气较软的表达），以及跨段落关联的复杂待办，这是Prompt难以完全覆盖的边界情况，我在PRD中已标注为下一版本需要优化的方向。</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-teal">Q2</span>
+          举一个你遇到困难并解决的项目经历
+        </div>
+        <div class="qa-a">
+          <p>我用文本摘要工具项目来回答这个问题——这个项目最核心的挑战是<span class="highlight">Prompt输出格式漂移</span>的问题。</p>
+          <p><strong>背景：</strong>我设计了一个调用GLM-4处理会议记录、提取结构化待办的工具，初版上线后发现模型输出很不稳定——有时输出Markdown列表，有时是段落文字，有时把摘要和待办混在一起，程序解析频繁报错。</p>
+          <p><strong>分析：</strong>我把20个失败样本逐一分类，发现问题主要集中在三类：角色指令不够明确、两类任务的输出格式没有用分隔符区分、长文本时模型"遗忘"了格式要求。</p>
+          <p><strong>解决过程：</strong>针对这三类问题，我做了3轮Prompt迭代：第一轮加入严格的输出格式模板和示例；第二轮在两个任务之间插入分隔标记；第三轮对长文本增加了分段处理的指令。同时在工程层面加了JSON解析容错逻辑，捕获异常后自动重试。</p>
+          <p><strong>结果：</strong>格式稳定性从初版的约40%提升到接近100%，待办召回率达到<span class="data-point">85%</span>，单条处理耗时控制在<span class="data-point">3秒以内</span>。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-teal">Q3</span>
+          为什么选择平台治理运营方向？你对AI+治理有什么理解？
+        </div>
+        <div class="qa-a">
+          <p>我的兴趣是从AI产品实习的经历中生长出来的。在做大V投资助手产品的时候，我调研数据合规边界时接触到了平台内容治理的议题——我发现<span class="highlight">AI生成内容在平台上既是机会也是风险</span>：它能极大降低内容生产成本，但也带来了虚假信息、侵权内容规模化生产的新挑战。</p>
+          <p>我对"AI+治理"的理解是：单纯依靠规则引擎的传统审核方式已经跟不上内容多样性的增长速度，而纯AI审核又存在误判风险和可解释性问题。最有效的路径应该是<span class="highlight">人机协作的闭环系统</span>——AI负责高效处理海量标准化案例，人工负责处理边界情况并持续反馈标注，再通过运营分析不断优化AI的判断策略。</p>
+          <p>TikTok Shop的平台治理岗位吸引我的地方，正是它处于这个人机协作链路的核心位置：既要理解大模型的能力边界和Prompt优化，又要有业务运营的视角去设计合理的审核规则。这和我在实习中做的工作在逻辑上是高度连贯的。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Agent认知 -->
+    <div class="section" id="ai-agent">
+      <div class="section-header">
+        <div class="section-icon" style="background:#7c3aed; color:#fff; font-size:14px; font-weight:600; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center;">03</div>
+        <div class="section-title-text">AI Agent & 大模型运营认知</div>
+        <span class="section-badge badge-purple">核心考察</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-purple">Q1</span>
+          如何理解AI Agent在平台治理/审核场景中的作用？人审和机审的优劣分别是什么？
+        </div>
+        <div class="qa-a">
+          <p>我在实习中做过AI Agent产品，对这个问题有自己的理解。</p>
+          <p>在平台治理场景里，AI Agent的核心价值是<span class="highlight">规模化处理能力</span>——电商平台每天新增商品和内容的量级，人工团队根本无法全量覆盖，AI能在毫秒级完成初步风险研判，把人力释放出来专注于复杂案例。</p>
+          <p><strong>机审的优势：</strong>速度快、成本低、一致性强，适合规则清晰、案例标准化的场景，比如关键词命中、已知侵权图片的哈希匹配。</p>
+          <p><strong>机审的局限：</strong>大模型在理解上下文语义、处理文化差异性内容、面对新型违规形式时容易误判或漏判；同时输出可解释性差，出了问题难以快速定位原因。</p>
+          <p><strong>人审的价值：</strong>处理灰色地带和新兴违规类型，提供标注数据反哺模型，以及在面向商家的申诉流程中提供人性化的沟通。</p>
+          <p>最合理的架构应该是<span class="highlight">分层处理模型</span>：置信度高的案例由AI直接处置，置信度低或涉及特定敏感类目的案例升级至人工，人工的处理结果再作为训练数据持续优化AI模型。这也是我在产品实习中设计Agent工作流时反复思考的逻辑。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-purple">Q2</span>
+          如果AI Agent的输出出现偏差（误判/漏判），你会如何分析原因并提出优化建议？
+        </div>
+        <div class="qa-a">
+          <p>我在文本摘要工具项目里处理过类似问题，可以用同样的分析框架来回答。</p>
+          <p><strong>第一步，量化定位：</strong>先区分是误判（把正常内容判为违规）还是漏判（违规内容未被识别），以及问题集中在哪类商品/场景。我会从数据报表入手，按品类、时间段、违规类型拆解错误率分布，找到偏差最集中的切片。</p>
+          <p><strong>第二步，样本分析：</strong>抽取偏差案例做人工分类，判断原因属于：A）Prompt指令不够明确或存在歧义；B）训练数据中这类case覆盖不足；C）模型对特定文化/语言的理解偏差；D）业务规则本身存在模糊地带。</p>
+          <p><strong>第三步，针对性优化：</strong>如果是A，优化Prompt，增加反例示例或更明确的边界说明；如果是B，补充标注数据；如果是C，增加针对该语种的专项规则；如果是D，推动业务侧澄清规则定义。</p>
+          <p><strong>第四步，验证闭环：</strong>对修改后的版本在hold-out数据集上做A/B测试，确认精准率和召回率都有提升再全量推广。</p>
+          <div class="tip"><strong>结合简历亮点：</strong>可以主动提到"这和我在Prompt迭代项目中的经验是一致的——我通过3轮迭代把格式稳定性从40%提升到接近100%，核心方法就是先把失败样本分类，再针对每类原因设计解决方案。"</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-purple">Q3</span>
+          你了解Prompt工程吗？如何通过优化Prompt提升模型在特定业务场景下的准确性？
+        </div>
+        <div class="qa-a">
+          <p>这是我在实习中做得最多的工作之一，有比较具体的实践经验。</p>
+          <p>我理解Prompt工程的本质是<span class="highlight">把业务规则翻译成模型能稳定理解的指令语言</span>。在我的项目经历里，核心方法包括：</p>
+          <p><strong>角色 + 任务 + 格式三段式结构：</strong>告诉模型它是谁、要做什么、用什么格式输出。我发现在格式要求上越具体越好，比如"用JSON格式返回，字段包含summary（字符串）和todos（数组）"，比"请结构化输出"要稳定得多。</p>
+          <p><strong>正例 + 反例双向示范：</strong>光给正例容易让模型漂移，加上"不要包含..."的反例说明，可以显著减少冗余输出。我在待办提取的Prompt里加了"待办必须包含主语、动作和时间，不要提取观点性表述"，召回精度明显提升。</p>
+          <p><strong>迭代测试框架：</strong>每轮改完Prompt后，我会在固定的测试集上跑一遍，对比关键指标的变化，不凭感觉判断效果。这样3轮迭代下来，我的待办召回率从初版的约60%提升到了<span class="data-point">85%</span>。</p>
+          <p>在审核类场景里，我认为特别重要的是<span class="highlight">对边界情况的显式说明</span>——把灰色地带的判断逻辑写进Prompt，同时配合少量精选的边界case示例，能大幅减少模型在模糊场景下的随机性。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-purple">Q4</span>
+          什么是模型评测？你会用哪些指标衡量一个审核类AI模型的效果？
+        </div>
+        <div class="qa-a">
+          <p>在我的文本摘要项目里，我实际做过模型效果评估，对这套框架有体感。</p>
+          <p>对于审核类模型，最核心的两个指标是<span class="highlight">精准率（Precision）</span>和<span class="highlight">召回率（Recall）</span>：</p>
+          <p><strong>精准率</strong>衡量"判为违规的内容中，真正违规的比例"——精准率低意味着误伤率高，会伤害正常商家体验；</p>
+          <p><strong>召回率</strong>衡量"真正违规的内容中，被成功识别的比例"——召回率低意味着漏判率高，会影响平台治理效果。</p>
+          <p>两者往往有trade-off，需要根据业务场景决定侧重点。比如知识产权侵权场景下，漏判的危害（法律风险）通常大于误判，所以可以适当提高召回率，容忍一定的误判，由人工二次确认。</p>
+          <p>除此之外，实际业务中还要关注：<span class="highlight">处理速度</span>（单条审核耗时）、<span class="highlight">模型稳定性</span>（相同输入是否给出一致结果）、以及<span class="highlight">分类别的错误分布</span>（找到最需要优先改进的品类）。</p>
+          <p>在我的项目里，我用人工评分（1-5分）衡量摘要质量，用精确率衡量待办提取，最终在20条测试样本上拿到了4.2/5和85%召回率的结果——这让我意识到评测集的设计本身很关键，测试样本必须覆盖边界情况，不能只选"容易的"案例。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 平台治理 -->
+    <div class="section" id="governance">
+      <div class="section-header">
+        <div class="section-icon amber" style="color:#fff; font-size:14px; font-weight:600; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center;">04</div>
+        <div class="section-title-text">平台治理 & 知识产权业务</div>
+        <span class="section-badge badge-amber">业务判断题</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-amber">Q1</span>
+          你对电商平台知识产权治理有什么了解？常见的侵权类型有哪些？
+        </div>
+        <div class="qa-a">
+          <p>在调研大V投资助手的数据合规边界时，我接触到了版权和数据使用的合规问题，也在准备这次面试的过程中专门了解了电商知识产权治理的常见场景。</p>
+          <p>在TikTok Shop这样的跨境电商平台上，知识产权侵权主要集中在几类：</p>
+          <p><strong>商标侵权：</strong>在商品标题、图片或描述中使用他人注册商标，比如"Nike风格运动鞋"或商品图上出现未授权LOGO。这是TikTok Shop最高发的侵权类型。</p>
+          <p><strong>版权侵权：</strong>商品主图/详情页使用未经授权的图片、设计图或宣传语；视频内容使用版权音乐或影视片段。</p>
+          <p><strong>专利侵权：</strong>销售仿制品或功能高度相似的产品，通常需要专业技术比对，是治理难度最大的类型。</p>
+          <p><strong>AIGC相关的新型侵权：</strong>用AI生成仿冒品牌风格的商品图或宣传文案，这是近年来增长最快的新问题，也是我认为AI审核技术最需要重点突破的方向。</p>
+          <p>治理的难点在于：<span class="highlight">跨国注册商标的法律归属差异、语言多样性导致的文本识别复杂度、以及AIGC内容与真实版权作品的相似度判定</span>。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-amber">Q2</span>
+          假设平台出现大量AI生成的低质/侵权内容，你会如何设计"人工+机器"的治理方案？
+        </div>
+        <div class="qa-a">
+          <p>我会从三个层次来设计这个方案：</p>
+          <p><strong>第一层，技术拦截（AI为主）：</strong>在内容上架前设置AI预审关口，针对AIGC内容做专项识别——包括图像相似度哈希比对（识别已知侵权素材的变体）、文本语义匹配（识别品牌关键词的变形写法）、以及AIGC水印检测。对于置信度高于阈值的明确违规内容，直接拒绝上架，不进入人工队列。</p>
+          <p><strong>第二层，分级人工复核：</strong>置信度处于灰色区间的内容（比如0.4~0.7）进入人工队列，按风险等级（品牌知名度、历史申诉频次）排优先级。人工复核的结果同时作为标注数据返回AI训练系统，形成<span class="highlight">持续学习的闭环</span>。</p>
+          <p><strong>第三层，效果监控与策略迭代：</strong>定期输出数据报表，追踪误判率、漏判率、各品类侵权量趋势，以及商家申诉通过率。发现某类指标异常时，触发专项分析，针对性调整Prompt或规则阈值。</p>
+          <p>这套框架的核心理念是：<span class="highlight">让AI处理确定性，让人工处理不确定性，让数据驱动两者的持续优化</span>——这也是我在实习中做AI Agent设计时反复验证的思路。</p>
+          <div class="tip"><strong>回答技巧：</strong>如果时间充裕，可以追加一个维度——"商家侧的预防性教育"，即通过上架前的合规提示、热门侵权类型的实时提醒，从源头降低侵权提交量，这也是运营侧能直接落地的工作。</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-amber">Q3</span>
+          如果某类违规的漏判率突然上升，你会如何通过数据定位问题根因？
+        </div>
+        <div class="qa-a">
+          <p>这是一个典型的数据分析题，我会用"拆解 → 假设 → 验证"的思路来回答。</p>
+          <p><strong>第一步，时间切片：</strong>漏判率是哪个时间节点开始上升的？是否与某次模型更新、规则调整或平台活动时间节点吻合？先确认是偶发还是持续趋势。</p>
+          <p><strong>第二步，维度拆解：</strong>按品类、来源国、语言、商品价格带等维度拆分漏判率，找到问题最集中的切片。比如"是所有品类都在涨，还是只有服装类漏判率高"——这直接决定后续的处理方向。</p>
+          <p><strong>第三步，样本分析：</strong>抽取漏判案例做人工复核，把失败原因分类：是模型没识别出侵权特征，还是侵权商家改变了规避方式（比如用谐音字替换品牌名），还是新出现了模型未见过的侵权模板。</p>
+          <p><strong>第四步，根因 + 对策：</strong>如果是商家对抗策略升级，需要更新Prompt中的模式识别说明并补充新的反例；如果是某语种识别能力弱，需要针对性补充该语言的训练数据；如果是规则定义有歧义，推动业务侧更新判断标准。</p>
+          <p>我在银行对账工具项目中有类似的"未匹配明细自动标出"的设计思路，本质上也是让异常数据可见、可追查，而不是被淹没在汇总数字里。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据分析 -->
+    <div class="section" id="data">
+      <div class="section-header">
+        <div class="section-icon coral" style="color:#fff; font-size:14px; font-weight:600; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center;">05</div>
+        <div class="section-title-text">数据分析能力</div>
+        <span class="section-badge badge-coral">能力验证</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-coral">Q1</span>
+          你用Excel/BI做过哪些数据分析？举一个实际产出报表的案例。
+        </div>
+        <div class="qa-a">
+          <p>我最有代表性的案例是在银行流水自动对账工具项目中设计的差异分析报表。</p>
+          <p>这个工具的输出包含两部分：<span class="highlight">汇总统计</span>（总匹配率、金额差异汇总）和<span class="highlight">未匹配明细</span>（包含差异类型标注：是真实差异还是时间性差异）。我用pandas处理数据后，导出到Excel并设置了条件格式——金额差异超过阈值的行自动标红，方便财务人员快速定位需要人工复核的项。</p>
+          <p>在数据可视化上，我用Excel透视表做了"按月份的对账覆盖率趋势"和"未匹配金额的分布区间"两张图，让管理层一眼看到对账效率的变化。</p>
+          <p>这个工具在<span class="data-point">500+笔</span>真实脱敏数据上测试，自动匹配覆盖率达<span class="data-point">90%以上</span>，剩余未匹配记录全部自动标出，大幅减少了人工逐行核对的时间。</p>
+          <div class="tip"><strong>补充：</strong>如果被追问SQL能力，可以提到本科时修过MySQL数据分析课，能做多表JOIN、聚合分析；也有用SQL做过数据清洗的经验。</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-coral">Q2</span>
+          如何设计一个数据看板来监控AI Agent的业务表现？
+        </div>
+        <div class="qa-a">
+          <p>我会把看板分为三个层次：</p>
+          <p><strong>核心指标层（日粒度）：</strong>精准率、召回率、F1-score的整体数值及趋势折线图，以及处理量和平均响应时间。这是最高频查看的"体检指标"。</p>
+          <p><strong>问题诊断层（支持下钻）：</strong>按品类、来源国、违规类型的错误率分布热力图；以及高风险case的实时队列，标注置信度分布区间，让运营快速识别需要干预的异常。</p>
+          <p><strong>迭代效果层（版本对比）：</strong>每次Prompt更新或规则调整后，对比前后的关键指标变化；商家申诉通过率趋势，作为用户体验的反向验证指标。</p>
+          <p>看板设计的核心原则是：<span class="highlight">让异常可见</span>——数字没问题时不需要人看，有异常时应该能主动触发告警，这样才能真正减少运营的认知负担，而不是增加一个需要每天盯的大屏。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TikTok认知 -->
+    <div class="section" id="tiktok">
+      <div class="section-header">
+        <div class="section-icon blue" style="color:#fff; font-size:14px; font-weight:600; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center;">06</div>
+        <div class="section-title-text">TikTok / 国际电商认知</div>
+        <span class="section-badge badge-blue">背景了解</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-blue">Q1</span>
+          你对TikTok Shop的商业模式有什么理解？和国内抖音电商有什么差异？
+        </div>
+        <div class="qa-a">
+          <p>TikTok Shop和抖音电商在底层逻辑上是一致的——<span class="highlight">兴趣电商模式</span>，即通过短视频和直播内容触达用户，让用户在消费内容的过程中产生购物行为，而非主动搜索购买。</p>
+          <p>但两者面临的挑战有本质差异：</p>
+          <p><strong>法规复杂度：</strong>TikTok Shop目前主要在美国、东南亚、英国等市场运营，每个市场的消费者保护法、知识产权法律、广告合规要求各不相同，比如美国FTC对网红带货的披露要求、欧盟对数据隐私的严格限制，这些都需要本地化的治理策略。</p>
+          <p><strong>语言与文化多样性：</strong>内容审核和商品合规判断需要覆盖英语、泰语、越南语、马来语等多种语言，AI模型对不同语言的理解能力参差不齐，这是治理的核心技术难题。</p>
+          <p><strong>商家群体差异：</strong>TikTok Shop的商家既有中国跨境卖家，也有本地商家，文化背景和合规意识差异大，对运营侧的用户教育和规则传达提出了更高要求。</p>
+          <p>我认为TikTok Shop在治理上最值得投入的方向，是建立<span class="highlight">多语种的AI审核能力</span>和<span class="highlight">本地化的合规规则库</span>，而不是简单地把国内的治理经验平移过去。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR面 -->
+    <div class="section" id="hr">
+      <div class="section-header">
+        <div class="section-icon gray" style="color:#fff; font-size:14px; font-weight:600; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center;">07</div>
+        <div class="section-title-text">HR面常见问题</div>
+        <span class="section-badge badge-gray">最后一关</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-gray">H1</span>
+          什么时候可以到岗？能保证3个月以上实习吗？
+        </div>
+        <div class="qa-a">
+          <p>（根据实际情况填写）我目前的实习到五月底结束，六月可以全职投入。我的研究生9月才入学，所以6月到8月都可以保证全职实习，完全满足3个月以上的要求。如果项目需要，9月入学后也可以协商继续兼职配合交接。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-gray">H2</span>
+          压力最大的一段经历是什么，如何应对的？
+        </div>
+        <div class="qa-a">
+          <p>是在大V智能投资助手项目里需要在两周内从0到1完成完整PRD并输出可演示原型的阶段。那时候我一边要做用户调研、一边要学习金融类产品的内容架构逻辑，还要并行调研三个数据平台的接口可用性，任务密度很高。</p>
+          <p>我的应对方式是：先列清楚所有任务的优先级和依赖关系，把"路径上的阻塞项"先解决——数据源调研结果会影响功能设计，所以我第一周优先完成数据层调研，第二周再集中精力写PRD和做原型。同时我主动用Claude等工具来加速初稿生成，把精力集中在内容的逻辑校验和迭代优化上，而不是从零开始写。</p>
+          <p>最终按时交付了完整PRD和可演示原型，这段经历让我更加相信：<span class="highlight">高密度任务下，结构化拆解和借助工具提效是最关键的两件事</span>。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-gray">H3</span>
+          用三个词描述你自己
+        </div>
+        <div class="qa-a">
+          <p><strong>有结构感</strong>——无论是写PRD、做数据分析还是回答问题，我习惯先搭框架再填内容，不会让信息散乱。</p>
+          <p><strong>数据驱动</strong>——我对"感觉效果不错"不满足，会用可量化的指标验证结果。在Prompt迭代项目里，我坚持每轮改完都在测试集上跑一遍再判断好坏。</p>
+          <p><strong>快速学习</strong>——Prompt工程、AI API调用、金融产品逻辑都是我在实习中边做边学的，我享受这种"在陌生领域快速建立认知"的过程。</p>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="q-tag badge-gray">H4</span>
+          反问环节：推荐问这些问题
+        </div>
+        <div class="qa-a">
+          <p><strong>问题1：</strong>我看到JD里提到参与AI Agent在知识产权场景的落地，目前团队主要在用什么样的大模型或框架来支持审核流程？实习生在这个方向上能参与到哪些具体工作？</p>
+          <p><strong>问题2：</strong>在您看来，这个岗位上最有价值的运营同学，和普通运营同学最大的区别是什么？</p>
+          <p><strong>问题3（HR面）：</strong>实习生在字节通常有哪些成长路径？如果表现好，转正或者留下来的可能性大吗？</p>
+          <div class="tip"><strong>注意：</strong>反问最多准备2-3个，根据面试官的身份选择（业务面试官问工作内容类，HR问成长路径类）。表现出真实的好奇心比提问技巧更重要。</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('.section');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      navItems.forEach(n => n.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
